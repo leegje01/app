@@ -1,0 +1,129 @@
+<html>
+    <link rel="stylesheet" href="app.css" type="text/css">
+   <head>
+     <title>Task List</title>
+   </head>
+   <body>
+       <section id =high>
+          
+           <ol type=I id= "busylist"></ol>
+           <input type="text" id="taskBox" placeholder= "Enter Text" onchange="addTask()" />
+           <button id="a" onclick="addTask();">Add Task</button>
+       </section>
+	   
+	   
+      
+       <aside id =low>
+          <input type="text" id="lowTask" placeholder= "Enter Text" onchange="addLow()" />
+           <button id= "b" onclick="addLow();">Add Low</button>
+           <ol type=I id= "nohurry"></ol>
+       </aside>
+       
+       <button onclick="changer();">changer</button>
+       
+           
+    </body>    
+     
+    
+
+     <script>
+       addTask = function() 
+               {
+           i = document.querySelector('#taskBox');
+           bl = document.querySelector("#busylist")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(i.value)
+           bl.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           i.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave()
+     }
+       
+           
+     
+	 
+	</script>
+    <script>
+        addLow= function()
+       {
+           l=document.querySelector("#lowTask");
+           nh=document.querySelector("#nohurry")
+           li=document.createElement("li")
+           newcb=document.creatElement("input")
+		   newcb.type="checkbox"
+		   t= document.createTextNode(l.value)
+           nh.appendChild(li2)
+		   li2.appendChild(newcb);
+           li2.appendChild(t) 
+           l.value="";
+           newcb.onclick=doneTask;
+       }
+      
+    </script>
+    <script>
+    localSave=function(){
+    var res=[]
+    var i;
+    allEntries = document.querySelectorAll("li")
+    for(i=0; i < allEntries.length; i++) {
+    if (! allEntries[i].classList.contains("done") ){
+    res.push(allEntries[i].innerText );
+    }
+	
+	}
+	
+    console.log(res)
+	localStorage.setItem("todoDatabase",JSON.stringify(res))
+	}
+    //so we store the array in local storage
+    </script>
+	<script>
+    
+	
+    
+    
+    restoreTasks=function(){
+    allTasks=JSON.parse(localStorage.getItem("todoDatabase"))
+	taskList=document.querySelector("#busylist");
+    for(i=0;i < allTasks.length; i++)
+			{
+		   
+		   bl = document.querySelector("#busylist");
+		   newcb=document.createElement("input")
+		   li = document.createElement("li")
+		   newcb.type="checkbox"
+           li.innerHTML = allTasks[i]
+		   bl.appendChild(li)
+		   li.appendChild(newcb);
+           allTasks[i]="";
+		   newcb.onclick=doneTask;
+		   
+		   
+		   }
+           }
+           
+   </script> 
+   <script> 
+   doneTask=function(){
+   		if (this.checked) {
+   			this.parentNode.classList.add("done");
+   			} else {
+        this.parentNode.classList.remove("done");
+		}
+		
+		localSave()
+   
+   }
+   </script>
+   <script type="text/javascript">
+        // When the page is loaded restore all tasks
+        window.onload = restoreTasks;
+    </script>
+    
+   
+ </html>
