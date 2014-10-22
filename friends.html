@@ -1,0 +1,108 @@
+<html>
+<img id ="appleicon" src="friends.img" alt="HTML tutorial" style="width:42px;height:42px;border:20px">
+
+<link rel="stylesheet" href="circlebutton.css" type="text/css">
+
+  
+	   <section id =friends>
+          <input type="text" id="friendit" placeholder= "Enter Text" onchange="addFriend()" />
+           <button id= "c" onclick="addFriend();">Add Friend</button>
+           <ol type=I id= "friend"></ol>
+       </section>
+
+	<div id="happy">
+<a href="index.html">
+	<img src="http://www.geckorecruitment.com/wp-content/uploads/2013/10/smiley_face.jpg"  style="width:84px;height:84px;border:10">
+	</a>
+</div>
+   
+
+
+	   
+ <script>
+      addFriend = function() 
+               {
+            f = document.querySelector('#friendit');
+           fl = document.querySelector("#friend")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(f.value)
+           fl.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           f.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave3()
+     }
+       
+           
+     
+	 
+	</script>
+	  
+
+    
+	
+    
+    
+   <script>
+    localSave3=function(){
+    var res=[]
+    var f;
+    allEntries = document.querySelectorAll("li")
+    for(f=0; f < allEntries.length; f++) {
+    if (! allEntries[f].classList.contains("done") ){
+    res.push(allEntries[f].innerText );
+    }
+	
+	}
+	
+    console.log(res)
+	localStorage.setItem("todoDatabasefriend",JSON.stringify(res))
+	}
+    //so we store the array in local storage
+    </script>
+	<script>
+    
+	
+    
+    
+    restoreTasksFriend=function(){
+    allTasks=JSON.parse(localStorage.getItem("todoDatabasefriend"))
+	taskList=document.querySelector("#friendit");
+    for(f=0;f < allTasks.length; f++)
+			{
+		   fl = document.querySelector("#friend");
+		   newcb=document.createElement("input")
+		   li = document.createElement("li")
+		   newcb.type="checkbox"
+           li.innerHTML = allTasks[f]
+		   fl.appendChild(li)
+		   li.appendChild(newcb);
+           allTasks[f]="";
+		   newcb.onclick=doneTask;
+		   
+		   
+		   }
+           }
+           
+   </script> 
+   <script> 
+   doneTask=function(){
+   		if (this.checked) {
+   			this.parentNode.classList.add("done");
+   			} else {
+        this.parentNode.classList.remove("done");
+		}
+		
+		localSave3()
+   
+   }
+   </script>
+   <script type="text/javascript">
+        // When the page is loaded restore all tasks
+        window.onload = restoreTasksFriend;
+		//onload we want a quote to load at random from a database of quotes, numbered randomly from 000 to 100.
+    </script>

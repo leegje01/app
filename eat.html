@@ -1,0 +1,111 @@
+<html>
+<head>
+     <title>Eat List</title>
+   </head>
+<img id ="appleicon" src="apple.img" alt="HTML tutorial" style="width:42px;height:42px;border:20px">
+
+<link rel="stylesheet" href="circlebutton.css" type="text/css">
+
+  
+	   <section id =eat>
+          
+           <ol type=I id= "eat"></ol>
+		   <button id="a" onclick="addEat();">Add Eat</button>
+           <input type="text" id="eatit" placeholder= "Enter Text" onchange="addEat()" />
+           
+       </section>
+	   
+<div id="happy">
+<a href="index.html">
+	<img src="smiley.img"  style="width:84px;height:84px;border:10">
+	</a>
+</div>
+	   
+ <script>
+      addEat = function() 
+               {
+            e = document.querySelector('#eatit');
+           el = document.querySelector("#eat")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(e.value)
+           el.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           e.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave1()
+     }
+	 
+       
+           
+     
+	 
+	</script>
+	  <script>
+    
+	
+    
+    
+ 
+    localSave1=function(){
+    var res=[]
+    var e;
+    allEntries = document.querySelectorAll("li")
+    for(e=0; e < allEntries.length; e++) {
+    if (! allEntries[e].classList.contains("done") ){
+    res.push(allEntries[e].innerText );
+    }
+	
+	}
+	
+    console.log=(res)
+	localStorage.setItem("todoDatabaseeat",JSON.stringify(res))
+	}
+    //so we store the array in local storage
+    </script>
+	<script>
+    
+	
+    
+    
+    restoreTasks=function(){
+    allTasks=JSON.parse(localStorage.getItem("todoDatabaseeat"))
+	taskList=document.querySelector("#eatit");
+    for(e=0;e < allTasks.length; e++)
+			{
+		   
+		   el = document.querySelector("#eat");
+		   newcb=document.createElement("input")
+		   li = document.createElement("li")
+		   newcb.type="checkbox"
+           li.innerHTML = allTasks[e]
+		   el.appendChild(li)
+		   li.appendChild(newcb);
+           allTasks[e]="";
+		   newcb.onclick=doneTask;
+		   
+		   }
+           }
+           
+   </script> 
+   <script> 
+   doneTask=function(){
+   		if (this.checked) {
+   			this.parentNode.classList.add("done");
+   			} else {
+        this.parentNode.classList.remove("done");
+		}
+		
+		localSave1()
+   
+   }
+   </script>
+   <script type="text/javascript">
+        // When the page is loaded restore all tasks
+        window.onload = restoreTasks;
+		//onload we want a quote to load at random from a database of quotes, numbered randomly from 000 to 100.
+    </script>
+</html>

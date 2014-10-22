@@ -1,0 +1,72 @@
+body{
+background:orange;
+}
+
+div{
+    position:absolute;
+    width:20px;
+    height:20px;
+	
+}
+#apple
+{
+   border:40px solid red;
+   right:50%;
+   background-color: red;
+   border-radius:40px;
+   position:center;
+   
+}   
+#friends
+{
+    border:40px solid purple;
+    top:30%;
+    right:10%;
+	border-radius:40px;
+	background-color:purple;
+
+}
+#cross
+{
+    border:40px solid red;
+    top:30%;
+    left:10%;
+	border-radius: 40px;
+	background-color:read;
+}
+#read
+{	
+   
+    border:40px solid yellow;
+    top:60%;
+    right:10%;
+	border-radius: 40px;
+	background-color:yellow;
+}
+#workout
+{
+    border: 40px solid green;
+    top:60%;
+    left:10%;
+	border-radius: 40px;
+	background-color:green;
+}
+#happy
+  {	
+	top:40%;
+	left:42%;
+	background-color:yellow;
+	border-radius: 40px;
+	
+	
+	}
+	
+img#appleicon{
+left:50px;
+}
+ li.done{
+           text-decoration: line-through;
+		 
+		   
+        }
+		

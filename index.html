@@ -1,35 +1,62 @@
 <html>
-    <link rel="stylesheet" href="app.css" type="text/css">
+    <link rel="stylesheet" href="circlebutton.css" type="text/css">
    <head>
      <title>Task List</title>
    </head>
    <body>
-       <section id =high>
-          
-           <ol type=I id= "busylist"></ol>
-           <input type="text" id="taskBox" placeholder= "Enter Text" onchange="addTask()" />
-           <button id="a" onclick="addTask();">Add Task</button>
-       </section>
-	   
-	   
-      
-       <aside id =low>
-          <input type="text" id="lowTask" placeholder= "Enter Text" onchange="addLow()" />
-           <button id= "b" onclick="addLow();">Add Low</button>
-           <ol type=I id= "nohurry"></ol>
-       </aside>
-       
-       <button onclick="changer();">changer</button>
-       
+
+
+<div id="apple">
+<a href="eat.html">
+  <img src="apple.img" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+</a>
+</div>
+
+<div id="read">
+<a href="read.html">
+  <img src="book.img" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+</a>
+</div>
+
+<div id="happy">
+<a href="happy.html">
+	<img src="smiley.img"  style="width:84px;height:84px;border:10">
+	</a>
+</div>
+
+
+<div id="workout">
+<a href="workout.html">
+  <img src="dumbbell.img" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+</a>
+</div>
+
+<div id = "cross">
+<a href="spirit.html">
+  <img src="cross.img" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+</a>
+</div>
+
+<div id="friends">
+<a href="friends.html">
+  <img src="friends.img" alt="HTML tutorial" style="width:42px;height:42px;border:0">
+</a>
+</div>
+	 
            
     </body>    
      
-    
+    <script type="text/javascript">
+         changeThisPageFunc = function() {
+            document.body.style.backgroundColor = "lightblue";
+            document.body.innerHTML = "<h1>I am a little blue today</h1>";
+         }
+      </script>
 
      <script>
        addTask = function() 
                {
-           i = document.querySelector('#taskBox');
+           i = document.querySelector('#taskbox');
            bl = document.querySelector("#busylist")
            li = document.createElement("li")
            newcb=document.createElement("input")
@@ -48,11 +75,77 @@
      
 	 
 	</script>
+	<script>
+       addRead = function() 
+               {
+           i = document.querySelector('#eatit');
+           bl = document.querySelector("#eat")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(i.value)
+           bl.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           i.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave()
+     }
+       
+           
+     
+	 
+	</script>
+	<script>
+       addLow = function() 
+               {
+           i = document.querySelector('#lowtask');
+           bl = document.querySelector("#nohurry")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(i.value)
+           bl.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           i.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave()
+     }
+       
+           
+     
+	 
+	</script>
+	<script>
+       addEat = function() 
+               {
+           i = document.querySelector('#eatit');
+           bl = document.querySelector("#eat")
+           li = document.createElement("li")
+           newcb=document.createElement("input")
+		   newcb.type="checkbox"
+           t= document.createTextNode(i.value)
+           bl.appendChild(li)
+		   li.appendChild(newcb);
+           li.appendChild(t) 
+           i.value="";
+           newcb.onclick=doneTask;
+		   
+		   localSave()
+     }
+       
+           
+     
+	 
+	</script>
     <script>
-        addLow= function()
+        addWork= function()
        {
-           l=document.querySelector("#lowTask");
-           nh=document.querySelector("#nohurry")
+           l=document.querySelector("#workit");
+           nh=document.querySelector("#workout")
            li=document.createElement("li")
            newcb=document.creatElement("input")
 		   newcb.type="checkbox"
@@ -123,6 +216,7 @@
    <script type="text/javascript">
         // When the page is loaded restore all tasks
         window.onload = restoreTasks;
+		//onload we want a quote to load at random from a database of quotes, numbered randomly from 000 to 100.
     </script>
     
    
