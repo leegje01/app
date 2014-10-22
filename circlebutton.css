@@ -10,8 +10,8 @@ div{
 }
 #apple
 {
-   border:40px solid red;
-   right:50%;
+   border:30px solid red;
+   right:43%;
    background-color: red;
    border-radius:40px;
    position:center;
@@ -19,7 +19,7 @@ div{
 }   
 #friends
 {
-    border:40px solid purple;
+    border:30px solid purple;
     top:30%;
     right:10%;
 	border-radius:40px;
@@ -28,16 +28,16 @@ div{
 }
 #cross
 {
-    border:40px solid red;
+    border:30px solid red;
     top:30%;
     left:10%;
 	border-radius: 40px;
-	background-color:read;
+	background-color:red;
 }
 #read
 {	
    
-    border:40px solid yellow;
+    border:30px solid yellow;
     top:60%;
     right:10%;
 	border-radius: 40px;
@@ -45,18 +45,20 @@ div{
 }
 #workout
 {
-    border: 40px solid green;
+    border: 30px solid green;
     top:60%;
     left:10%;
 	border-radius: 40px;
 	background-color:green;
 }
-#happy
-  {	
+#happypic
+  {	border:20px yellow;
 	top:40%;
 	left:42%;
-	background-color:yellow;
-	border-radius: 40px;
+	border-radius: 30px;
+	background-color:white;
+	position:relative;
+	
 	
 	
 	}
